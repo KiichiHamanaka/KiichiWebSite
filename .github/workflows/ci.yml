@@ -44,6 +44,9 @@ jobs:
       - name: Install dependencies 👨🏻‍💻
         run: yarn
 
+      - name: generate dist
+        run: yarn generate
+        
       - name: Run linter 👀
         run: yarn lint
 
