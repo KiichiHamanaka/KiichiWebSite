@@ -2,7 +2,7 @@ const routerBase =
   process.env.DEPLOY_ENV === 'GH_PAGES'
     ? {
         router: {
-          base: '/<repository-name>/',
+          base: '/<repository-name>/gh-pages/',
         },
       }
     : {}
@@ -18,7 +18,7 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
-
+  routerBase,
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [],
 
@@ -42,6 +42,6 @@ export default {
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
   router: {
-    base: '/<repository-name>/',
+    base: '/<repository-name>/gh-pages/',
   },
 }
