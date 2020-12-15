@@ -44,9 +44,12 @@ jobs:
       - name: Install dependencies 👨🏻‍💻
         run: yarn
 
-      - name: generate dist
-        run: yarn generate
-        
+      - name: Run build gh-pages
+        run: yarn build:gh-pages
+
+      - name: Run generate gh-pages
+        run: yarn generate:gh-pages
+
       - name: Run linter 👀
         run: yarn lint
 
