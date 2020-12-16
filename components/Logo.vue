@@ -7,8 +7,8 @@
       <img
         class="object-center mx-auto h-64 w-auto"
         :src="choiceImage"
-        @click="randomImage(images)"
         alt="クリックすると画像変わるよ！"
+        @click="randomImage(images)"
       />
     </transition>
     <a class="myName">Kiichi Hamanaka</a>
@@ -27,6 +27,9 @@ export default {
       choiceImage: null,
     }
   },
+  mounted() {
+    this.randomImage(this.images)
+  },
   methods: {
     randomItem(items) {
       return items[Math.floor(Math.random() * items.length)]
@@ -36,9 +39,6 @@ export default {
       this.choiceImage = this.randomItem(this.images)
       if (tmp === this.choiceImage) this.randomImage(items)
     },
-  },
-  mounted() {
-    this.randomImage(this.images)
   },
 }
 </script>
