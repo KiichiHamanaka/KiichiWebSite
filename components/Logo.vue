@@ -6,12 +6,43 @@
     >
       <img
         class="object-center mx-auto h-64 w-auto"
-        src="~/assets/images/bug.png"
+        :src="choiceImage"
+        @click="randomImage(images)"
+        alt="クリックすると画像変わるよ！"
       />
     </transition>
     <a class="myName">Kiichi Hamanaka</a>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      images: [
+        require('~/assets/images/bug.png'),
+        require('~/assets/images/zikannai.png'),
+        require('~/assets/images/kimotti.jpg'),
+      ],
+      choiceImage: null,
+    }
+  },
+  methods: {
+    randomItem(items) {
+      return items[Math.floor(Math.random() * items.length)]
+    },
+    randomImage(items) {
+      const tmp = this.choiceImage
+      this.choiceImage = this.randomItem(this.images)
+      if (tmp === this.choiceImage) this.randomImage(items)
+    },
+  },
+  mounted() {
+    this.randomImage(this.images)
+  },
+}
+</script>
+
 <style>
 @font-face {
   font-family: 'pop';
